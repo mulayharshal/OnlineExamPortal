@@ -1,0 +1,80 @@
+<div class="question-edit-container">
+    <div class="edit-header">
+      <h2 class="edit-title">Edit Question</h2>
+      <a [routerLink]="['/admin/quations/', examId]" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Questions
+      </a>
+    </div>
+  
+    <form (ngSubmit)="updateQuestion()" #questionForm="ngForm" class="edit-question-form">
+      <!-- Question Content -->
+      <div class="form-group">
+        <label for="content">Question Text</label>
+        <textarea id="content" name="content" [(ngModel)]="question.content" required
+                  class="form-control" placeholder="Enter the question" rows="3"></textarea>
+      </div>
+  
+      <!-- Options Grid -->
+      <div class="options-grid">
+        <!-- Option A -->
+        <div class="option-group" [class.is-correct]="question.correctAnswer === 'A'">
+          <label for="optionA">Option A</label>
+          <div class="option-input">
+            <span class="option-letter">A</span>
+            <input type="text" id="optionA" name="optionA" [(ngModel)]="question.optionA" required
+                   class="form-control" placeholder="Enter option A">
+          </div>
+        </div>
+  
+        <!-- Option B -->
+        <div class="option-group" [class.is-correct]="question.correctAnswer === 'B'">
+          <label for="optionB">Option B</label>
+          <div class="option-input">
+            <span class="option-letter">B</span>
+            <input type="text" id="optionB" name="optionB" [(ngModel)]="question.optionB" required
+                   class="form-control" placeholder="Enter option B">
+          </div>
+        </div>
+  
+        <!-- Option C -->
+        <div class="option-group" [class.is-correct]="question.correctAnswer === 'C'">
+          <label for="optionC">Option C</label>
+          <div class="option-input">
+            <span class="option-letter">C</span>
+            <input type="text" id="optionC" name="optionC" [(ngModel)]="question.optionC" required
+                   class="form-control" placeholder="Enter option C">
+          </div>
+        </div>
+  
+        <!-- Option D -->
+        <div class="option-group" [class.is-correct]="question.correctAnswer === 'D'">
+          <label for="optionD">Option D</label>
+          <div class="option-input">
+            <span class="option-letter">D</span>
+            <input type="text" id="optionD" name="optionD" [(ngModel)]="question.optionD" required
+                   class="form-control" placeholder="Enter option D">
+          </div>
+        </div>
+      </div>
+  
+      <!-- Correct Answer -->
+      <div class="form-group correct-answer-group">
+        <label for="correctAnswer">Correct Answer</label>
+        <select id="correctAnswer" name="correctAnswer" [(ngModel)]="question.correctAnswer" required
+                class="form-control">
+          <option value="" disabled>Select the correct option</option>
+          <option value="A">Option A</option>
+          <option value="B">Option B</option>
+          <option value="C">Option C</option>
+          <option value="D">Option D</option>
+        </select>
+      </div>
+  
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <button type="submit" class="submit-button" [disabled]="questionForm.invalid">
+          <i class="fas fa-save"></i> Update Question
+        </button>
+      </div>
+    </form>
+  </div>

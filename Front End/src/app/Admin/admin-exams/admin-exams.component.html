@@ -1,0 +1,34 @@
+<div class="exam-management-container">
+    <div class="management-header">
+        <h1 class="management-title">Exam Management</h1>
+        <a [routerLink]="['/admin/createExam/',userId]" class="primary-action-button">
+            <span class="button-icon">+</span> Create New Exam
+        </a>
+    </div>
+    
+    <div class="exam-grid">
+        <div *ngFor="let exam of exams" class="exam-item">
+            <div class="exam-content">
+                <div class="exam-meta">
+                    <h2 class="exam-name">{{exam.title}}</h2>
+                    <span class="exam-stat">{{exam.questions.length}} Questions</span>
+                </div>
+                
+                <p class="exam-details">{{exam.description}}</p>
+                <p class="exam-duration">Duration: {{exam.duration}} minutes</p>
+                
+                <div class="action-group">
+                    <a [routerLink]="['/admin/update/',userId, exam.id]" class="secondary-action-button">
+                        <span class="action-icon">✏️</span> Edit
+                    </a>
+                    <a [routerLink]="['/admin/quations/', exam.id]" class="secondary-action-button">
+                        <span class="action-icon">?</span> Questions
+                    </a>
+                    <a [routerLink]="['/admin/results/', exam.id]" class="secondary-action-button">
+                        <span class="action-icon">📊</span> Results
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

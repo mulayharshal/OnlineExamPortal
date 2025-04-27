@@ -1,0 +1,51 @@
+<div class="results-container">
+  <div class="results-header">
+    <h1 class="results-title">Exam Results</h1>
+    <a [routerLink]="['/exams']" class="back-button">
+      <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+    
+  </div>
+
+  <div *ngIf="results.length === 0" class="empty-state">
+    <i class="fas fa-clipboard-list empty-icon"></i>
+    <h3>No Results Available</h3>
+    <p>You haven't taken any exams yet.</p>
+    <a routerLink="/exams" class="browse-exams-btn">
+      <i class="fas fa-search"></i> Browse Available Exams
+    </a>
+  </div>
+
+  <div *ngIf="results.length > 0" class="results-grid">
+    <div *ngFor="let result of results; let i = index" class="result-card">
+      <div class="card-header">
+        <h3 class="exam-name">{{ result.examName }}</h3>
+        <div class="score-badge" [ngClass]="{
+          'excellent': (result.score/result.totalMarks) >= 0.8,
+          'good': (result.score/result.totalMarks) >= 0.5 && (result.score/result.totalMarks) < 0.8,
+          'poor': (result.score/result.totalMarks) < 0.5
+        }">
+          {{ result.score }}/{{ result.totalMarks }}
+        </div>
+      </div>
+      
+      <div class="result-details">
+        <div class="detail-item">
+          <i class="fas fa-percentage"></i>
+          <span>Percentage: {{ (result.score/result.totalMarks)*100 | number:'1.0-2' }}%</span>
+        </div>
+        
+        <div class="detail-item">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Submitted: {{ result.submissionTime | date:'medium' }}</span>
+        </div>
+      </div>
+      
+      <!-- <div class="result-actions">
+        <button class="detail-button" (click)="viewDetails(result.id)">
+          <i class="fas fa-chart-bar"></i> View Detailed Results
+        </button>
+      </div> -->
+    </div>
+  </div>
+</div>

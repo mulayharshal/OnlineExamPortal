@@ -1,0 +1,39 @@
+<div class="results-management-container">
+  <div class="results-header">
+    <h2 class="results-title">Exam Results</h2>
+    <a [routerLink]="['/admin/exams']" class="back-button">
+      <i class="fas fa-arrow-left"></i> Back to Exams
+    </a>
+  </div>
+
+  <div *ngIf="results.length === 0" class="empty-state">
+    <i class="fas fa-clipboard-list empty-icon"></i>
+    <p class="empty-message">No results available yet</p>
+  </div>
+
+  <div *ngFor="let result of results" class="result-card">
+    <div class="result-header">
+      <h3 class="user-name">{{ result.userName }}</h3>
+      <div class="score-badge">
+        {{ result.score }} / {{ result.totalMarks }}
+      </div>
+    </div>
+    
+    <div class="result-meta">
+      <div class="meta-item">
+        <i class="fas fa-calendar-alt meta-icon"></i>
+        <span>{{ formatDate(result.submissionTime) }}</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-percentage meta-icon"></i>
+        <span>{{ calculatePercentage(result.score, result.totalMarks) }}%</span>
+      </div>
+    </div>
+    
+    <!-- <div class="result-actions">
+      <button class="detail-button">
+        <i class="fas fa-eye"></i> View Details
+      </button>
+    </div> -->
+  </div>
+</div>

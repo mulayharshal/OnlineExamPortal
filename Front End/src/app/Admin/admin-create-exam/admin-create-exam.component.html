@@ -1,0 +1,34 @@
+<div class="exam-creation-container">
+  <div class="exam-creation-header">
+    <h2>Create New Exam</h2>
+    <a [routerLink]="['/admin/exams']" class="back-button">
+      <i class="fas fa-arrow-left"></i> Back to Exams
+    </a>
+  </div>
+
+  <form (ngSubmit)="createExam()" #examForm="ngForm" class="exam-form">
+    <div class="form-group">
+      <label for="title">Exam Title</label>
+      <input type="text" id="title" name="title" [(ngModel)]="exam.title" required 
+             placeholder="Enter exam title" class="form-input">
+    </div>
+    
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" name="description" [(ngModel)]="exam.description" required
+                placeholder="Enter exam description" class="form-textarea" rows="4"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="duration">Duration (minutes)</label>
+      <input type="number" id="duration" name="duration" [(ngModel)]="exam.duration" required
+             placeholder="Enter duration in minutes" class="form-input" min="1">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="examForm.invalid" class="submit-button">
+        Create Exam
+      </button>
+    </div>
+  </form>
+</div>

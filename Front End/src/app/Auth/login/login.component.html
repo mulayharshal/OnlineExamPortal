@@ -1,0 +1,52 @@
+<!-- login.component.html -->
+<div class="login-wrapper">
+  <div class="login-container">
+    <div class="login-card">
+      <h1 class="company-name">Online Exam Portal</h1>
+
+      <h2>Welcome Back</h2>
+      <p>Please login to your account</p>
+
+      <form #loginForm="ngForm" (ngSubmit)="loginUser(loginForm.value)" class="login-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            ngModel 
+            required
+            placeholder="your@email.com"
+          />
+          <div *ngIf="loginForm.submitted && loginForm.controls['email']?.errors?.['required']">
+            Email is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            ngModel 
+            required
+            placeholder="••••••••"
+          />
+          <div *ngIf="loginForm.submitted && loginForm.controls['password']?.errors?.['required']">
+            Password is required
+          </div>
+        </div>
+
+        <div class="form-options">
+          <label><input type="checkbox" id="remember" name="remember"> Remember me</label>
+          <a routerLink="/forgot-password">Forgot password?</a>
+        </div>
+
+        <button type="submit" [disabled]="loginForm.invalid">Sign In</button>
+
+        <p>Don't have an account? <a href="/register">Create account</a></p>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="question-form-container">
+  <div class="form-header">
+    <h2 class="form-title">Add New Question</h2>
+    <a [routerLink]="['/admin/quations/', examId]" class="back-link">
+      <i class="fas fa-arrow-left"></i> Back to Questions
+    </a>
+  </div>
+
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()" class="question-form">
+    <div class="form-group">
+      <label for="content">Question Text</label>
+      <textarea id="content" class="form-control" formControlName="content" 
+                placeholder="Enter the question" rows="3"></textarea>
+    </div>
+
+    <div class="options-grid">
+      <div class="option-group" [class.correct-option]="questionForm.value.correctAnswer === 'A'">
+        <label for="optionA">Option A</label>
+        <div class="option-input">
+          <span class="option-letter">A</span>
+          <input type="text" id="optionA" class="form-control" formControlName="optionA" 
+                 placeholder="Enter option A">
+        </div>
+      </div>
+
+      <div class="option-group" [class.correct-option]="questionForm.value.correctAnswer === 'B'">
+        <label for="optionB">Option B</label>
+        <div class="option-input">
+          <span class="option-letter">B</span>
+          <input type="text" id="optionB" class="form-control" formControlName="optionB" 
+                 placeholder="Enter option B">
+        </div>
+      </div>
+
+      <div class="option-group" [class.correct-option]="questionForm.value.correctAnswer === 'C'">
+        <label for="optionC">Option C</label>
+        <div class="option-input">
+          <span class="option-letter">C</span>
+          <input type="text" id="optionC" class="form-control" formControlName="optionC" 
+                 placeholder="Enter option C">
+        </div>
+      </div>
+
+      <div class="option-group" [class.correct-option]="questionForm.value.correctAnswer === 'D'">
+        <label for="optionD">Option D</label>
+        <div class="option-input">
+          <span class="option-letter">D</span>
+          <input type="text" id="optionD" class="form-control" formControlName="optionD" 
+                 placeholder="Enter option D">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group correct-answer-group">
+      <label for="correctAnswer">Correct Answer</label>
+      <select id="correctAnswer" class="form-control" formControlName="correctAnswer">
+        <option value="" disabled>Select the correct option</option>
+        <option value="A">Option A</option>
+        <option value="B">Option B</option>
+        <option value="C">Option C</option>
+        <option value="D">Option D</option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="submit-button" [disabled]="questionForm.invalid">
+        Save Question
+      </button>
+    </div>
+  </form>
+</div>

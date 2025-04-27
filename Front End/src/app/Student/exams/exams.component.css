@@ -1,0 +1,128 @@
+/* Main container */
+.exams-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Header and View Results Button */
+  .exams-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .exams-header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .view-results-btn {
+    background-color: #4f46e5;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .view-results-btn:hover {
+    background-color: #4338ca;
+  }
+  
+  /* Grid Layout */
+  .exam-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  /* Exam Card */
+  .exam-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .exam-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Top part */
+  .exam-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .exam-info {
+    flex: 1;
+  }
+  
+  .exam-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: #111827;
+  }
+  
+  .exam-description {
+    font-size: 1rem;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .exam-duration {
+    font-size: 0.9rem;
+    color: #4b5563;
+    background-color: #e0e7ff;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  
+  /* Bottom part */
+  .exam-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  
+  .exam-stats {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #374151;
+  }
+  
+  .stat-icon {
+    margin-right: 0.5rem;
+    color: #6366f1;
+  }
+  
+  /* Start Exam Button */
+  .start-exam-btn {
+    background-color: #10b981;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-exam-btn:hover {
+    background-color: #059669;
+  }
+  

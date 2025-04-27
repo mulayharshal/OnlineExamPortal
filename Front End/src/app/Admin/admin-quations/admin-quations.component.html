@@ -1,0 +1,42 @@
+<div class="questions-management-container">
+    <div class="questions-header">
+      <h2 class="page-title">Questions Management</h2>
+      <div class="action-buttons">
+        <a [routerLink]="['/admin/addquation/', examId]" class="primary-button">
+          <i class="fas fa-plus"></i> Add New Question
+        </a>
+        <a [routerLink]="['/admin/exams']" class="secondary-button">
+          <i class="fas fa-list"></i> View Exams
+        </a>
+      </div>
+    </div>
+  
+    <div *ngIf="quations.length === 0" class="empty-state">
+      <i class="fas fa-question-circle"></i>
+      <p>No questions available yet</p>
+      <a [routerLink]="['/admin/addquation/', examId]" class="primary-button">
+        <i class="fas fa-plus"></i> Add Your First Question
+      </a>
+    </div>
+  
+    <div *ngFor="let question of quations" class="question-card">
+      <div class="question-content">
+        <h3>{{ question.content }}</h3>
+        <div class="options-grid">
+          <div class="option" [class.correct]="question.correctAnswer === 'A'">A) {{ question.optionA }}</div>
+          <div class="option" [class.correct]="question.correctAnswer === 'B'">B) {{ question.optionB }}</div>
+          <div class="option" [class.correct]="question.correctAnswer === 'C'">C) {{ question.optionC }}</div>
+          <div class="option" [class.correct]="question.correctAnswer === 'D'">D) {{ question.optionD }}</div>
+        </div>
+      </div>
+  
+      <div class="question-actions">
+        <a [routerLink]="['/admin/editquation', examId, question.id]" class="edit-button">
+          <i class="fas fa-edit"></i> Edit
+        </a>
+        <button (click)="deleteQuestion(question.id)" class="delete-button">
+          <i class="fas fa-trash-alt"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>

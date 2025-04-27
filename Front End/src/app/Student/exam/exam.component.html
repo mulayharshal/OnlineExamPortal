@@ -1,0 +1,70 @@
+<div>
+  <h1 class="exam-title">Exam: {{examdata.title}}</h1>
+  <p class="exam-description">{{examdata.description}}</p>
+  <p class="exam-instructions">Please answer all questions before submitting.</p>
+</div>  
+
+<div class="exam-container">
+  <!-- Timer in top corner -->
+  <div class="timer-container">
+    <div class="timer">
+      <i class="fas fa-clock"></i>
+      <span>Time Remaining: {{timerDisplay}}</span>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="quations.length === 0" class="loading-state">
+    <div class="spinner"></div>
+    <p>Preparing your exam questions...</p>
+  </div>
+
+  <!-- Exam Questions -->
+  <div *ngIf="quations.length > 0" class="exam-questions">
+    <div *ngFor="let question of quations; let i = index" class="question-card">
+      <div class="question-header">
+        <span class="question-number">Question {{i + 1}}</span>
+        <span class="question-points">1 point</span>
+      </div>
+      
+      <div class="question-content">
+        <p>{{question.content}}</p>
+      </div>
+
+      <div class="options-grid">
+        <label class="option" [class.selected]="selectedAnswers.get(question.id) === 'A'">
+          <input type="radio" name="option{{question.id}}" 
+                (change)="onOptionSelect(question.id, 'A')" hidden>
+          <span class="option-letter">A</span>
+          <span class="option-text">{{question.optionA}}</span>
+        </label>
+
+        <label class="option" [class.selected]="selectedAnswers.get(question.id) === 'B'">
+          <input type="radio" name="option{{question.id}}" 
+                (change)="onOptionSelect(question.id, 'B')" hidden>
+          <span class="option-letter">B</span>
+          <span class="option-text">{{question.optionB}}</span>
+        </label>
+
+        <label class="option" [class.selected]="selectedAnswers.get(question.id) === 'C'">
+          <input type="radio" name="option{{question.id}}" 
+                (change)="onOptionSelect(question.id, 'C')" hidden>
+          <span class="option-letter">C</span>
+          <span class="option-text">{{question.optionC}}</span>
+        </label>
+
+        <label class="option" [class.selected]="selectedAnswers.get(question.id) === 'D'">
+          <input type="radio" name="option{{question.id}}" 
+                (change)="onOptionSelect(question.id, 'D')" hidden>
+          <span class="option-letter">D</span>
+          <span class="option-text">{{question.optionD}}</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="submit-btn" (click)="onSubmit()" [disabled]="selectedAnswers.size !== quations.length">
+      <i class="fas fa-paper-plane"></i> Submit Exam
+    </button>
+  </div>
+</div>
