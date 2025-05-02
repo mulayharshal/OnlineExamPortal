@@ -29,28 +29,13 @@ import java.util.Map;
 @CrossOrigin
 public class StudentController {
 
-    @Autowired
-    private ExamRepository examRepository;
-
-    @Autowired
-    private SubmissionRepository submissionRepository;
-    
-    @Autowired
-    private QuestionRepository questionRepository;
-    
-    @Autowired
-    private AnswerRepository  answerRepository;
-    
-    
-    @Autowired
-    private SubmissionService submissionService;
+   
     
     @Autowired
     private StudentService  studentService;
 
     @GetMapping("/exams")
     public ResponseEntity<List<Exam>> getExams() {
-//    	List<Exam> response=examRepository.findAll();
     	List<Exam> response=studentService.getAllExams();
     	return new ResponseEntity<List<Exam>>(response,HttpStatus.OK);
     }
@@ -58,7 +43,6 @@ public class StudentController {
     
     @GetMapping("/exam/{id}")
     public ResponseEntity<List<Question>> getQuestion(@PathVariable int id) {
-//    	List<Question> response=questionRepository.findAllByexam_id(id);
     	List<Question> response=studentService.getExamById(id);
     	return new ResponseEntity<List<Question>>(response,HttpStatus.OK);
     }

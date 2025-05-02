@@ -53,7 +53,7 @@ export class AdminEditQuationComponent {
     this.service.updateQuestion(this.quationId , this.question).subscribe(
         (response: any) => {
           console.log('Question updated successfully', response);
-          alert(response.message);
+          alert(response.res);
           this.router.navigate(['/admin/quations/', this.examId]);
           
         },
