@@ -12,13 +12,15 @@ export class AuthServiceService {
   constructor(private http:HttpClient) {
     provideHttpClient();
    }
+// private baseUrl: string = 'http://localhost:8080';
+  private baseUrl: string = 'onlineexamportalbackend.up.railway.app';
 
 
    addUser(userData: any) {
-    return this.http.post('http://localhost:8080/auth/register',userData);
+    return this.http.post(`${this.baseUrl}/auth/register`,userData);
   }
   loginUser(formData: any) {
-    return this.http.post('http://localhost:8080/auth/login',formData);
+    return this.http.post(`${this.baseUrl}/auth/login`,formData);
   }
 
 }

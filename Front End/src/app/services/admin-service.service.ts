@@ -9,42 +9,44 @@ export class AdminServiceService {
 
 
   constructor(private http: HttpClient) {}
-  private baseUrl: string = 'http://localhost:8080';
+  // private baseUrl: string = 'http://localhost:8080';
+  private baseUrl: string = 'onlineexamportalbackend.up.railway.app';
+
 
   listAdminExams(id: number) {
     return this.http.get(`${this.baseUrl}/admin/exams/${id}`);
   }
 
   createExam(userId: number, exam: any) {
-    return this.http.post(`http://localhost:8080/admin/create-exam/${userId}`, exam);
+    return this.http.post(`${this.baseUrl}/admin/create-exam/${userId}`, exam);
   }
 
   getResults(examId: number) {
-    return this.http.get(`http://localhost:8080/admin/results/${examId}`);
+    return this.http.get(`${this.baseUrl}/admin/results/${examId}`);
   }
   listQuations(id: number) {
-    return this.http.get(`http://localhost:8080/student/exam/${id}`);
+    return this.http.get(`${this.baseUrl}/student/exam/${id}`);
   }
 
   addQuestion(examId: number, questionData: any) {
-    return this.http.post(`http://localhost:8080/admin/add-question/${examId}`, questionData);
+    return this.http.post(`${this.baseUrl}/admin/add-question/${examId}`, questionData);
   }
   updateQuestion(questionId: number, question: any){
-   return this.http.put(`http://localhost:8080/admin/update-question/${questionId}`, question)
+   return this.http.put(`${this.baseUrl}/admin/update-question/${questionId}`, question)
   }
   deleteQuation(questionId: number){
-    return this.http.delete(`http://localhost:8080/admin/delete-question/${questionId}`)
+    return this.http.delete(`${this.baseUrl}/admin/delete-question/${questionId}`)
   }
   getExamDetails(examId: number){
-    return this.http.get<any>(`http://localhost:8080/admin/get-exam/${examId}`)
+    return this.http.get<any>(`${this.baseUrl}/admin/get-exam/${examId}`)
   }
 
   updateExam(examId: number, exam: any){
-    return this.http.put<any>(`http://localhost:8080/admin/update-exam/${examId}`, exam)
+    return this.http.put<any>(`${this.baseUrl}/admin/update-exam/${examId}`, exam)
   }
 
   getQuestionById(questionId: number) {
-    return this.http.get<any>(`http://localhost:8080/admin/get-question/${questionId}`)
+    return this.http.get<any>(`${this.baseUrl}/admin/get-question/${questionId}`)
   }
  
   

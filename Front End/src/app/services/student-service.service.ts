@@ -7,14 +7,17 @@ import { Injectable } from '@angular/core';
 export class StudentServiceService {
   constructor(private http: HttpClient) {}
 
+  // private baseUrl: string = 'http://localhost:8080';
+  private baseUrl: string = 'onlineexamportalbackend.up.railway.app';
+
   // List all exams
   listExams() {
-    return this.http.get("http://localhost:8080/student/exams");
+    return this.http.get(`${this.baseUrl}/student/exams`);
   }
 
   // List questions for a specific exam
   listQuations(id: number) {
-    return this.http.get(`http://localhost:8080/student/exam/${id}`);
+    return this.http.get(`${this.baseUrl}/student/exam/${id}`);
   }
 
   // Submit answers for the exam
@@ -24,15 +27,15 @@ export class StudentServiceService {
       userId: userId,
       answers: answers
     };
-    return this.http.post(`http://localhost:8080/student/submit-exam/${examId}`, submissionData);
+    return this.http.post(`${this.baseUrl}/student/submit-exam/${examId}`, submissionData);
   }
 
   getResults(userId: number) {
-    return this.http.get(`http://localhost:8080/student/results/${userId}`);
+    return this.http.get(`${this.baseUrl}/student/results/${userId}`);
   }
 
   getExamData(examId: number) {
-    return this.http.get<any>(`http://localhost:8080/student/exam/data/${examId}`)
+    return this.http.get<any>(`${this.baseUrl}/student/exam/data/${examId}`)
   }
   
 }
