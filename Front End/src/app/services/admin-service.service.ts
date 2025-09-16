@@ -10,7 +10,7 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) {}
   // private baseUrl: string = 'http://localhost:8080';
-  private baseUrl: string = 'onlineexamportalbackend.up.railway.app';
+  private baseUrl: string = 'https://onlineexamportalbackend.up.railway.app';
 
 
   listAdminExams(id: number) {

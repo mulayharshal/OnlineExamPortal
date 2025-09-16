@@ -13,7 +13,7 @@ export class AuthServiceService {
     provideHttpClient();
    }
 // private baseUrl: string = 'http://localhost:8080';
-  private baseUrl: string = 'onlineexamportalbackend.up.railway.app';
+  private baseUrl: string = 'https://onlineexamportalbackend.up.railway.app';
 
 
    addUser(userData: any) {
