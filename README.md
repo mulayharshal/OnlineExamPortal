@@ -23,6 +23,11 @@ An Online Exam Management System built with **Spring Boot 2.3.3**, **Angular CLI
 
 ---
 
+## 🚀 Live Demo
+
+👉 [Try Online Exam Portal Live](https://onlineexamportal.up.railway.app)  
+
+---
 ## 🛠️ Tech Stack
 
 | Frontend | Backend | Database |
