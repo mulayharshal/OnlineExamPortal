@@ -35,7 +35,7 @@ import com.app.service.AdminService;
 
 @RestController
 @RequestMapping("/admin")
-@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true") 
+@CrossOrigin(origins = {"http://localhost:4200", "https://onlineexamportal.up.railway.app"}, allowCredentials = "true")
 public class AdminController {
 
     @Autowired

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
+@CrossOrigin({"http://localhost:4200", "https://onlineexamportal.up.railway.app"})
 public class UserController {
 
     @Autowired

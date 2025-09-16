@@ -26,7 +26,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/student")
-@CrossOrigin
+@CrossOrigin({"http://localhost:4200", "https://onlineexamportal.up.railway.app"})
 public class StudentController {
 
    
